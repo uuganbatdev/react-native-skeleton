@@ -21,13 +21,15 @@ class Component {
 	fillTemplateAndReturn = () => {
 		if (this.imports[0]) {
 			this.imports.map(importName => {
-
+				importName = importName[0].toUpperCase().concat(importName.slice(1,importName.length));
 				this.importStrings += `import ${importName} from 'components/${importName}';${NEW_LINE}`
 				this.componentStrings += `${TAB}${TAB}${TAB}${TAB}<${importName}/>${NEW_LINE}`
 			} 
 			)
 		}
-
+		for (let i in this.imports) {
+			console.log(this.imports[i]);
+		}
 		return (
 `import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
