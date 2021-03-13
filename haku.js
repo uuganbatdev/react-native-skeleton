@@ -9,8 +9,11 @@ class Component {
 	importStrings = '';
 	componentStrings = '';
 	name = '';
-
-	constructor(name, imports) {
+	isScreen;
+	constructor(name, imports, isScreen) {
+		name = name[0].toUpperCase().concat(name.slice(1,name.length));
+		if (isScreen) { name = name.concat('Screen') };
+		this.isScreen = isScreen;
 		this.name = name;
 		this.imports = imports;
 	}
@@ -56,10 +59,26 @@ let styles = StyleSheet.create({
 }
 
 
-let folderName = 'components';
-fs.mkdir(folderName, () => {
-	structure.components.map(file => {
-		fs.appendFileSync(`${folderName}/${file.name}.js`, new Component(file.name, file.imports).fillTemplateAndReturn());
-	});
-})
+let components = 'components';
+let screens = 'screens';
+
+fs.mkdirSync(components);
+fs.mkdirSync(screens);
+
+let giveFileName = (folderName, fileName, isScreen) => {
+	let addScreenStr = '';
+	let modifiedFileName = fileName[0].toUpperCase().concat(fileName.slice(1, fileName.length));
+	if (isScreen) {
+		addScreenStr = 'Screen';
+	}
+	return `${folderName}/${modifiedFileName}${addScreenStr}.js`;
+}
+
+structure.screens.map(file => {
+	fs.appendFileSync(giveFileName(screens, file.name, true), new Component(file.name, file.imports, true).fillTemplateAndReturn());
+});
+
+structure.components.map(file => {
+	fs.appendFileSync(giveFileName(components, file.name, false), new Component(file.name, file.imports, false).fillTemplateAndReturn());
+});
 

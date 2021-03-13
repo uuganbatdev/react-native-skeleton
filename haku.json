@@ -1,7 +1,23 @@
 {
+
+	"screens": [
+		{
+			"name": "yupii",
+			"imports": ["ahha", "kk"]
+		},
+		{
+			"name": "header",
+			"imports": ["ahha", "kk"]
+		},
+		{
+			"name": "footer",
+			"imports": ["ahha", "kk"]
+		}
+	],
+
 	"components": [
 		 {
-			"name": "Pages",
+			"name": "pages",
 			"imports": ["sda1","sda2","sda3"]
 		},
 		{
@@ -11,18 +27,6 @@
 		{
 			"name": "main",
 			"imports": ["kappa"]
-		},
-		{
-			"name": "Yupii",
-			"imports": ["ahha", "kk"]
-		},
-		{
-			"name": "Header",
-			"imports": ["ahha", "kk"]
-		},
-		{
-			"name": "Footer",
-			"imports": ["ahha", "kk"]
 		}
 	]
 }
