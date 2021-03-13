@@ -1,0 +1,29 @@
+{
+	"components": [
+		 {
+			"name": "Pages",
+			"imports": ["sda1","sda2","sda3"]
+		},
+		{
+			"name": "bo",
+			"imports": ["odko","uuganbat"]
+		},
+		{
+			"name": "main",
+			"imports": ["kappa"]
+		},
+		{
+			"name": "Yupii",
+			"imports": ["ahha", "kk"]
+		},
+		{
+			"name": "Header",
+			"imports": ["ahha", "kk"]
+		},
+		{
+			"name": "Footer",
+			"imports": ["ahha", "kk"]
+		}
+	]
+}
+
