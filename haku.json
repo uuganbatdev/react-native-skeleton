@@ -3,11 +3,13 @@
 	"screens": [
 		{
 			"name": "yupii",
-			"imports": ["ahha", "kk"]
+			"imports": ["ahha", "kk"],
+			"hasInputField": true
 		},
 		{
 			"name": "header",
-			"imports": ["ahha", "kk"]
+			"imports": ["ahha", "kk"],
+			"hasInputField": false
 		},
 		{
 			"name": "footer",
