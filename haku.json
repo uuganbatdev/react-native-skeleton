@@ -2,33 +2,148 @@
 
 	"screens": [
 		{
-			"name": "yupii",
-			"imports": ["ahha", "kk"],
+			"name": "signIn",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
 			"hasInputField": true
 		},
 		{
-			"name": "header",
-			"imports": ["ahha", "kk"],
-			"hasInputField": false
+			"name": "forgotPassword",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
 		},
 		{
-			"name": "footer",
-			"imports": ["ahha", "kk"]
+			"name": "resetPassword",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
+		},
+		{
+			"name": "signUp",
+			"imports": ["authInput", "datePicker", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
+		},
+		{
+			"name": "getCodeFromPhoneNumber",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
+		},
+		{
+			"name": "checkCodeFromPhoneNumber",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
+		},
+		{
+			"name": "authPhoneNumber",
+			"imports": ["authInput", "authButton", "authHeaderWithLogo"],
+			"hasInputField": true
+		},
+		{
+			"name": "intro",
+			"imports": ["authHeaderWithLogo"]
+		},
+		{
+			"name": "tutorial",
+			"imports": []
+		},
+		{
+			"name": "welcome",
+			"imports": []
+		},
+		{
+			"name": "search",
+			"imports": []
+		},
+		{
+			"name": "home",
+			"imports": ["podcastNavScreen", "header", "libraryNavScreen", "liveNavScreen"]
+		},
+		{
+			"name": "singlePodcast",
+			"imports": ["podcastOtherEpisodes", "header", "podcastAbout", "podcastComment"]
+		},
+		{
+			"name": "singleBook",
+			"imports": ["bookCard", "header","bookComment"]
+		},
+		{
+			"name": "myLibrary",
+			"imports": ["podcastCard", "header","bookCard"]
+		},
+		{
+			"name": "profile",
+			"imports": ["navigateFromProfileButton","header"]
 		}
+
+
 	],
 
 	"components": [
-		 {
-			"name": "pages",
-			"imports": ["sda1","sda2","sda3"]
+		{
+			"name": "libraryNavScreen",
+			"imports": ["longCard", "bookCard"]
 		},
 		{
-			"name": "bo",
-			"imports": ["odko","uuganbat"]
+			"name": "authInput",
+			"imports": []
 		},
 		{
-			"name": "main",
-			"imports": ["kappa"]
+			"name": "authButton",
+			"imports": []
+		},
+		{
+			"name": "authHeaderWithLogo",
+			"imports": []
+		},
+		{
+			"name": "datePicker",
+			"imports": []
+		},
+		{
+			"name": "liveNavScreen",
+			"imports": []
+		},
+		{
+			"name": "podcastNavScreen",
+			"imports": ["longCard", "podcastCard", "tinyImagedList"]
+		},
+		{
+			"name": "tinyImagedList",
+			"imports": []
+		},
+		{
+			"name": "podcastOtherEpisodes",
+			"imports": []
+		},
+		{
+			"name": "podcastAbout",
+			"imports": []
+		},
+		{
+			"name": "podcastComment",
+			"imports": []
+		},
+		{
+			"name": "navigateFromProfileButton",
+			"imports": []
+		},
+		{
+			"name": "bookComment",
+			"imports": []
+		},
+		{
+			"name": "header",
+			"imports": []
+		},
+		{
+			"name": "podcastCard",
+			"imports": []
+		},
+		{
+			"name": "longCard",
+			"imports": []
+		},
+		{
+			"name": "bookCard",
+			"imports": []
 		}
 	]
 }

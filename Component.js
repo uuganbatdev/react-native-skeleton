@@ -1,4 +1,3 @@
-
 let [ NEW_LINE, TAB ] = ['\n', '\t'];
 module.exports.Component = class Component {
 	static screenImports = '';
@@ -18,7 +17,7 @@ module.exports.Component = class Component {
 		name = name[0].toUpperCase().concat(name.slice(1,name.length));
 		if (isScreen) {
 			name = name.concat('Screen');
-			Component.screenImports +=`import ${name} from './screens/${name}';${NEW_LINE}`;
+			Component.screenImports +=`import ${name} from './screens/${name}.js';${NEW_LINE}`;
 		};
 		if (hasInputField != undefined) {
 			this.hasInputField = hasInputField;
@@ -32,7 +31,7 @@ module.exports.Component = class Component {
 		if (this.imports[0]) {
 			this.imports.map(importName => {
 				importName = importName[0].toUpperCase().concat(importName.slice(1,importName.length));
-				this.importStrings += `import ${importName} from '..components/${importName}';${NEW_LINE}`
+				this.importStrings += `import ${importName} from '../components/${importName}.js';${NEW_LINE}`
 				this.componentStrings += `${TAB}${TAB}${TAB}${TAB}<${importName}/>${NEW_LINE}`
 			} 
 			)
@@ -40,7 +39,7 @@ module.exports.Component = class Component {
 
 		return (
 `import React, { useState, useEffect } from 'react';
-import { StyleSheet, ${hasInputField ? 'PlatForm, KeyboardAvoidingView ': ''}Text, View } from 'react-native';
+import { StyleSheet, ${hasInputField ? 'PlatForm, KeyboardAvoidingView, ': ''}Text, View } from 'react-native';
 ${this.importStrings}
 
 export default function ${this.name}() {
