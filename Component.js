@@ -6,13 +6,13 @@ module.exports.Component = class Component {
 	componentStrings = '';
 	name = '';
 	isScreen;
-	hasInputField = false;
+	hasInputField;
 
 	constructor(
 		name,
-		imports,
-		isScreen,
-		hasInputField
+		imports = [],
+		isScreen = false,
+		hasInputField = false
 	) {
 		name = name[0].toUpperCase().concat(name.slice(1,name.length));
 		if (isScreen) {

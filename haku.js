@@ -6,6 +6,7 @@ let structure = JSON.parse(inputJson);
 let { Component } = require('./Component');
 
 let components = 'components';
+let componentsSet = new Set();
 let screens = 'screens';
 
 fs.mkdirSync(components);
@@ -20,7 +21,12 @@ let giveFileName = (folderName, fileName, isScreen) => {
 	return `${folderName}/${modifiedFileName}${addScreenStr}.js`;
 }
 
+
 structure.screens.map(file => {
+	file.imports.map(compname => {
+		componentsSet.add(compname);
+	})
+
 	fs.appendFileSync(
 		giveFileName(
 			fodlerName = screens,
@@ -36,21 +42,33 @@ structure.screens.map(file => {
 	);
 });
 
-structure.components.map(file => {
+
+componentsSet.forEach((file) => {
 	fs.appendFileSync(
 		giveFileName(
 			fodlerName = components,
+			fileName = file, 
+			isScreen = false
+		),
+		new Component(
+			name = file,
+		).fillTemplateAndReturn()
+	);
+})
+
+structure.components.map(file => {
+	fs.writeFileSync(
+		giveFileName(
+			folderName = components,
 			fileName = file.name, 
 			isScreen = false
 		),
 		new Component(
 			name = file.name,
 			imports = file.imports,
-			isScreen = false,
 		).fillTemplateAndReturn()
 	);
 });
-
 
 let appFileTemplate = 
 `import React from 'react';
